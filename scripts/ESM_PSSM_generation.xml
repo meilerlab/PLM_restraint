@@ -1,0 +1,16 @@
+<ROSETTASCRIPTS>
+    <FILTERS>
+    </FILTERS>
+    <RESIDUE_SELECTORS>
+        <Chain name="res" chains="1" />
+    </RESIDUE_SELECTORS>
+    <SIMPLE_METRICS>
+        <EsmPerplexityMetric name="perplexity_prediction" residue_selector="res" write_pssm="%%pssm%%" model="esm2_t33_650M_UR50D" multirun="true" />
+    </SIMPLE_METRICS>
+    <MOVERS>
+        <RunSimpleMetrics name="run" metrics="perplexity_prediction" override="true"/>
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="run"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>

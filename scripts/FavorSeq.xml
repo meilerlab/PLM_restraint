@@ -1,0 +1,25 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="beta" weights="beta"/>
+		<ScoreFunction name="beta_cst" weights="beta">
+			<Reweight scoretype="res_type_constraint" weight="1.0"/>
+		</ScoreFunction>
+	</SCOREFXNS>
+	<TASKOPERATIONS>
+		<InitializeFromCommandline name="ifcl"/>
+		<ReadResfile name="rrf" filename="./resfile.resfile"/>
+	</TASKOPERATIONS>
+	<MOVERS>
+		<FavorSequenceProfile name="favor" scaling="global" weight="15" pssm="%%pssm%%" scorefxns="beta_cst" chain="1"/>
+		<PackRotamersMover name="design" scorefxn="beta_cst" task_operations="ifcl,rrf" />
+	</MOVERS>
+	<FILTERS>
+	</FILTERS>
+	<APPLY_TO_POSE>
+	</APPLY_TO_POSE>
+	<PROTOCOLS>
+		<Add mover="favor"/>
+		<Add mover="design"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="beta" />
+</ROSETTASCRIPTS>

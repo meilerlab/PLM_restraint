@@ -1,0 +1,20 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="beta" weights="beta"/>
+	</SCOREFXNS>
+	<TASKOPERATIONS>
+		<InitializeFromCommandline name="ifcl"/>
+		<ReadResfile name="rrf" filename="./resfile.resfile"/>
+	</TASKOPERATIONS>
+	<MOVERS>
+		<FastRelax name="design" scorefxn="beta" relaxscript="MonomerDesign2019" disable_design="false" task_operations="ifcl,rrf" />
+	</MOVERS>
+	<FILTERS>
+	</FILTERS>
+	<APPLY_TO_POSE>
+	</APPLY_TO_POSE>
+	<PROTOCOLS>
+		<Add mover="design"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="beta" />
+</ROSETTASCRIPTS>
