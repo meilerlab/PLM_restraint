@@ -10,7 +10,7 @@
 		<ReadResfile name="rrf" filename="./resfile.resfile"/>
 	</TASKOPERATIONS>
 	<MOVERS>
-		<FavorSequenceProfile name="favor" scaling="global" weight="15" pssm="%%pssm%%" scorefxns="beta_cst" chain="1"/>
+		<FavorSequenceProfile name="favor" scaling="global" weight="5" pssm="%%pssm%%" scorefxns="beta_cst" chain="1"/>
 		<PackRotamersMover name="design" scorefxn="beta_cst" task_operations="ifcl,rrf" />
 	</MOVERS>
 	<FILTERS>
